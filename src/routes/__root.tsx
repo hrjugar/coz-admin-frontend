@@ -52,6 +52,7 @@ export const Route = createRootRoute({
       },
     ],
   }),
+  notFoundComponent: RootNotFound,
   shellComponent: RootDocument,
 })
 
@@ -62,10 +63,31 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <HeadContent />
       </head>
-      <body className="font-sans antialiased [overflow-wrap:anywhere] selection:bg-[rgba(213,84,45,0.24)]">
+      <body
+        suppressHydrationWarning
+        className="font-sans antialiased wrap-anywhere selection:bg-[rgba(213,84,45,0.24)]"
+      >
         {children}
         <Scripts />
       </body>
     </html>
+  )
+}
+
+function RootNotFound() {
+  return (
+    <main className="grid min-h-screen place-items-center px-6 py-10">
+      <section className="w-full max-w-xl rounded-[28px] border border-(--color-border) bg-[linear-gradient(165deg,var(--color-surface-strong),var(--color-surface))] p-8 text-center shadow-[0_1px_0_var(--color-highlight)_inset,0_28px_60px_rgba(17,17,17,0.12),0_12px_24px_rgba(77,103,177,0.08)] backdrop-blur-[6px]">
+        <p className="mb-3 text-xs font-bold tracking-[0.18em] text-(--color-primary) uppercase">
+          Co-Z Admin Portal
+        </p>
+        <h1 className="m-0 text-[clamp(2rem,4vw,2.75rem)] leading-[0.98] font-semibold tracking-[-0.04em] text-(--color-text)">
+          Page not found
+        </h1>
+        <p className="mt-3 text-(--color-text-muted)">
+          The page you requested does not exist or is no longer available.
+        </p>
+      </section>
+    </main>
   )
 }

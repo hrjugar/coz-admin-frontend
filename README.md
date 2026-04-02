@@ -191,3 +191,28 @@ Files prefixed with `demo` can be safely deleted. They are there to provide a st
 You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
 
 For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).
+
+# Frontend Architecture Notes
+
+As this app grows, prefer keeping route files thin and moving behavior into feature modules under `src/features`.
+
+## Suggested structure
+
+- `src/routes`: route registration and page composition
+- `src/features/<domain>`: feature-owned UI, schema, service calls, tests, and future stories
+- `src/components`: shared presentational pieces reused by multiple features
+- `src/lib`: cross-cutting utilities like observability, API clients, and test helpers
+- `src/test`: global test setup and reusable render helpers
+
+## Form pattern
+
+For forms, colocate these pieces in the same feature folder:
+
+- `*.schema.ts`: Zod schema and derived input/output types
+- `*.service.ts`: network or server-facing actions
+- `*.telemetry.ts`: feature-specific event names and error reporting
+- `*.tsx`: UI components
+- `*.test.tsx`: behavior-focused tests
+- `*.stories.tsx`: Storybook stories once Storybook is added
+
+This keeps validation, submission, testing, and observability aligned around one feature instead of scattering them across routes.
