@@ -15,7 +15,7 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Admin Login',
+        title: 'Co-Z Admin Portal',
       },
     ],
     links: [
@@ -32,6 +32,19 @@ export const Route = createRootRoute({
         as: 'font',
         type: 'font/ttf',
         crossOrigin: 'anonymous',
+      },
+      {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/favicon.svg',
+      },
+      {
+        rel: 'apple-touch-icon',
+        href: '/favicon.svg',
+      },
+      {
+        rel: 'manifest',
+        href: '/manifest.json',
       },
       {
         rel: 'stylesheet',
