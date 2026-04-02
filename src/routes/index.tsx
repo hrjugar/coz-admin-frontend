@@ -4,83 +4,84 @@ export const Route = createFileRoute('/')({ component: App })
 
 function App() {
   return (
-    <main className="page-wrap px-4 pb-8 pt-14">
-      <section className="island-shell rise-in relative overflow-hidden rounded-4xl px-6 py-10 sm:px-10 sm:py-14">
-        <div className="pointer-events-none absolute -left-20 -top-24 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(213,84,45,0.26),transparent_66%)]" />
-        <div className="pointer-events-none absolute -bottom-20 -right-20 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(77,103,177,0.18),transparent_66%)]" />
-        <p className="island-kicker mb-3">TanStack Start Base Template</p>
-        <h1 className="display-title mb-5 max-w-3xl text-4xl leading-[1.02] font-bold tracking-tight text-[var(--color-text)] sm:text-6xl">
-          Start simple, ship quickly.
-        </h1>
-        <p className="mb-8 max-w-2xl text-base text-[var(--color-text-muted)] sm:text-lg">
-          This base starter intentionally keeps things light: two routes, clean
-          structure, and the essentials you need to build from scratch.
-        </p>
-        <div className="flex flex-wrap gap-3">
-          <a
-            href="/about"
-            className="rounded-full border border-[rgba(213,84,45,0.28)] bg-[rgba(213,84,45,0.12)] px-5 py-2.5 text-sm font-semibold text-[var(--color-primary)] no-underline transition hover:-translate-y-0.5 hover:bg-[rgba(213,84,45,0.18)]"
+    <main className="grid min-h-screen place-items-center px-4 py-8 sm:px-6">
+      <section className="w-full max-w-[440px] rounded-[28px] border border-[var(--color-border)] bg-[linear-gradient(165deg,var(--color-surface-strong),var(--color-surface))] p-8 shadow-[0_1px_0_var(--color-highlight)_inset,0_28px_60px_rgba(17,17,17,0.12),0_12px_24px_rgba(77,103,177,0.08)] backdrop-blur-[6px] max-sm:rounded-[24px] max-sm:p-6">
+        <div className="mb-6">
+          <div
+            className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-[rgba(77,103,177,0.18)] bg-[color-mix(in_oklab,var(--color-surface-strong)_84%,white_16%)] px-3 py-1.5 text-[0.88rem] font-extrabold tracking-[0.08em] shadow-[0_10px_24px_rgba(77,103,177,0.08)]"
+            aria-hidden="true"
           >
-            About This Starter
-          </a>
-          <a
-            href="https://tanstack.com/router"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full border border-[rgba(77,103,177,0.2)] bg-[var(--color-surface)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text)] no-underline transition hover:-translate-y-0.5 hover:border-[rgba(77,103,177,0.35)]"
-          >
-            Router Guide
-          </a>
+            <span className="text-[var(--color-primary)]">CO</span>
+            <span className="text-[var(--color-text-muted)]">/</span>
+            <span className="text-[var(--color-secondary)]">Z</span>
+          </div>
+          <p className="mb-3 text-xs font-bold tracking-[0.18em] text-[var(--color-primary)] uppercase">
+            Co-Z Coworking Space
+          </p>
+          <h1 className="m-0 text-[clamp(2rem,4vw,2.75rem)] leading-[0.98] font-semibold tracking-[-0.04em] text-[var(--color-text)]">
+            Admin Portal Login
+          </h1>
+          <p className="mt-3.5 leading-[1.65] text-[var(--color-text-muted)]">
+            Sign in with your staff account to manage members, bookings, and
+            day-to-day workspace operations.
+          </p>
         </div>
-      </section>
 
-      <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {[
-          [
-            'Type-Safe Routing',
-            'Routes and links stay in sync across every page.',
-          ],
-          [
-            'Server Functions',
-            'Call server code from your UI without creating API boilerplate.',
-          ],
-          [
-            'Streaming by Default',
-            'Ship progressively rendered responses for faster experiences.',
-          ],
-          [
-            'Tailwind Native',
-            'Design quickly with utility-first styling and reusable tokens.',
-          ],
-        ].map(([title, desc], index) => (
-          <article
-            key={title}
-            className="island-shell feature-card rise-in rounded-2xl p-5"
-            style={{ animationDelay: `${index * 90 + 80}ms` }}
+        <form className="grid gap-4">
+          <label className="grid gap-2">
+            <span className="text-[0.92rem] font-semibold text-[var(--color-text)]">
+              Email
+            </span>
+            <input
+              className="w-full rounded-2xl border border-[var(--color-border)] bg-[color-mix(in_oklab,var(--color-surface-strong)_88%,white_12%)] px-4 py-[0.95rem] text-[var(--color-text)] outline-none transition-[border-color,box-shadow,background-color] duration-180 placeholder:text-[color-mix(in_oklab,var(--color-text-muted)_70%,transparent_30%)] focus:border-[color-mix(in_oklab,var(--color-secondary)_65%,var(--color-border))] focus:shadow-[0_0_0_4px_rgba(77,103,177,0.14)]"
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              autoComplete="email"
+            />
+          </label>
+
+          <label className="grid gap-2">
+            <span className="text-[0.92rem] font-semibold text-[var(--color-text)]">
+              Password
+            </span>
+            <input
+              className="w-full rounded-2xl border border-[var(--color-border)] bg-[color-mix(in_oklab,var(--color-surface-strong)_88%,white_12%)] px-4 py-[0.95rem] text-[var(--color-text)] outline-none transition-[border-color,box-shadow,background-color] duration-180 placeholder:text-[color-mix(in_oklab,var(--color-text-muted)_70%,transparent_30%)] focus:border-[color-mix(in_oklab,var(--color-secondary)_65%,var(--color-border))] focus:shadow-[0_0_0_4px_rgba(77,103,177,0.14)]"
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              autoComplete="current-password"
+            />
+          </label>
+
+          <div className="mt-[0.1rem] flex items-center justify-between gap-4 max-sm:flex-col max-sm:items-start">
+            <label className="inline-flex items-center gap-[0.55rem] text-[0.92rem] text-[var(--color-text-muted)]">
+              <input
+                className="h-4 w-4 accent-[var(--color-primary)]"
+                type="checkbox"
+                name="remember"
+              />
+              <span>Remember this device</span>
+            </label>
+            <a
+              className="text-[0.92rem] font-semibold text-[var(--color-secondary)] no-underline hover:text-[var(--color-secondary-strong)]"
+              href="/"
+            >
+              Forgot password?
+            </a>
+          </div>
+
+          <button
+            className="cursor-pointer rounded-2xl bg-[linear-gradient(135deg,var(--color-primary),var(--color-primary-strong))] px-[1.1rem] py-4 font-bold text-[#f5f1ea] shadow-[0_14px_30px_rgba(213,84,45,0.24)] transition-[transform,box-shadow,filter] duration-180 hover:-translate-y-px hover:shadow-[0_18px_34px_rgba(213,84,45,0.28)] hover:saturate-[1.04] focus-visible:shadow-[0_0_0_4px_rgba(77,103,177,0.18),0_18px_34px_rgba(213,84,45,0.28)] focus-visible:outline-none"
+            type="button"
           >
-            <h2 className="mb-2 text-base font-semibold text-[var(--color-text)]">
-              {title}
-            </h2>
-            <p className="m-0 text-sm text-[var(--color-text-muted)]">{desc}</p>
-          </article>
-        ))}
-      </section>
+            Sign In
+          </button>
 
-      <section className="island-shell mt-8 rounded-2xl p-6">
-        <p className="island-kicker mb-2">Quick Start</p>
-        <ul className="m-0 list-disc space-y-2 pl-5 text-sm text-[var(--color-text-muted)]">
-          <li>
-            Edit <code>src/routes/index.tsx</code> to customize the home page.
-          </li>
-          <li>
-            Update <code>src/components/Header.tsx</code> and{' '}
-            <code>src/components/Footer.tsx</code> for brand links.
-          </li>
-          <li>
-            Add routes in <code>src/routes</code> and tweak visual tokens in{' '}
-            <code>src/styles.css</code>.
-          </li>
-        </ul>
+          <p className="mt-0.5 text-center text-[0.84rem] text-[var(--color-text-muted)]">
+            Authorized personnel only.
+          </p>
+        </form>
       </section>
     </main>
   )
